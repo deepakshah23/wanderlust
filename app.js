@@ -88,32 +88,10 @@ app.use((req,res,next)=>{
     // console.log(res.locals.sucess);
     next();
 })
-// app.get("/demouser",async (req,res)=>{
-//     let fakeUser=new User({
-//         email:"student2@gmail.com",
-//         username:"delta-student",
-//     });
-//     let registeredUser=await User.register(fakeUser,"helloworld");
-//     res.send(registeredUser);
 
-// })
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
-
-// app.get("/testlisting", async (req,res)=>{
-//     let samplelisting=new Listing({
-//         title:"My new villa",
-//         description:"by the beach",
-//         price:1200,
-//         location:"kalangute, goa",
-//         country:"India",
-//     });  
-//     await samplelisting.save().then(()=>{
-//         console.log("sample was saved");
-//         res.send("Sucessful tesing");
-//     })   
-// })
 
 // middleware error handling
 app.all("*",(req,res,next)=>{
