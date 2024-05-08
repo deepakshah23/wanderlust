@@ -21,25 +21,13 @@ upload.single('listing[image]'),
 validateListing,
 wrapAsync(listingController.createListing)
 );
-// .post(upload.single('listing[image]'),(req,res)=>{
-//     res.send(req.file);
-// })
-
-
-// index route
-// router.get("/",
-// wrapAsync(listingController.index)
-// );
 
 // create new
 router.get("/new",
 isLoggedIn,
 listingController.renderNewForm)
 
-// router.post("/",
-// validateListing,
-// wrapAsync(listingController.createListing)
-// );
+
 
 
 router.route("/:id")
@@ -58,29 +46,12 @@ isLoggedIn,
 isOwner,
 wrapAsync(listingController.destroyListing)
 )
-// show route
-// router.get("/:id",
-// wrapAsync(listingController.showListing)
-// );
+
 
 // update route or edit
 router.get("/:id/edit",
 isLoggedIn,
 isOwner,
 wrapAsync(listingController.renderEditForm));
-
-// router.put("/:id",
-// isLoggedIn,
-// isOwner,
-// validateListing,
-// wrapAsync(listingController.updateListing)
-// );
-
-// delete route
-// router.delete("/:id",
-// isLoggedIn,
-// isOwner,
-// wrapAsync(listingController.destroyListing)
-// );
 
 module.exports=router;
