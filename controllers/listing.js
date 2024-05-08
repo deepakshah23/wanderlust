@@ -27,35 +27,18 @@ module.exports.showListing=async (req,res)=>{
     res.render("listings/show.ejs",{listing});
 }
 module.exports.createListing=async (req,res,next)=>{
-    // let {title, description, image, price, location, country}=req.body;
-    // let listing=req.body.listing;
-    // console.log(listing)
-    
-    // server error handling
-    // let {result}=listingSchema.validate(req.body);
-    // console.log(result);
-    // if(result.error){
-    //     throw new ExpressError(400,result.error);
-    // }
-
-    // if(!req.body.listings){
-    //     throw new ExpressError(400,"send valid data for listing")
-    // }
+   
     let response=await geocodingClient.forwardGeocode({
         query: req.body.listing.location,
         limit: 1,
       })
         .send()
-    //    console.log(response.body.feature[0].geometry);
-    //    res.send("done!");
 
         let url=req.file.path;
         let filename=req.file.filename;
         // console.log(url,"...",filename)
         const newlisting=new Listing(req.body.listing);
-        // await newlisting.save().then(()=>{
-        // console.log("sample was saved");
-        // })
+        
         newlisting.owner=req.user._id;
         newlisting.image={url, filename};
 
@@ -69,7 +52,7 @@ module.exports.createListing=async (req,res,next)=>{
 module.exports.renderEditForm=async (req,res)=>{
     let {id}=req.params;
     let list=await Listing.findById(id);
-    // console.log(list);
+    
     if(!list){
         req.flash("error","Listing you requested for does not exist!");
         res.redirect("/listings");
@@ -79,9 +62,7 @@ module.exports.renderEditForm=async (req,res)=>{
     res.render("listings/edit.ejs",{list,originalImageUrl});
 }
 module.exports.updateListing=async (req,res)=>{
-    // if(!req.body.listings){
-        //     throw new ExpressError(400,"send valid data for listing")
-        // }
+   
         let {id}=req.params;
        let listing= await Listing.findByIdAndUpdate(id,{...req.body.listing});
 
@@ -93,12 +74,12 @@ module.exports.updateListing=async (req,res)=>{
        }
         req.flash("sucess","Listing updated!");
     res.redirect(`/listings/${id}`);
-    // console.log(updatelisting);
+   
 }
 module.exports.destroyListing=async (req,res)=>{
     let {id}=req.params;
     let deletedlisting=await Listing.findByIdAndDelete(id);
-    // console.log(deletedlisting);
+    
     req.flash("sucess","Listing deleted!");
     res.redirect("/listings");
 }
