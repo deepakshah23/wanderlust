@@ -7,8 +7,13 @@
     <style>
         #filters{
             display: flex;
-            flex-wrap: wrap;
+            width: 100vh;
+             /* flex-wrap: wrap; */
             align-items: center;
+            overflow: auto;
+        }
+         #filters::-webkit-scrollbar{
+            width: 0;
         }
         .filter{
             text-align: center;
@@ -35,7 +40,13 @@
             display: flex;
             align-items: center;
         }
+    .f-icon{
+            display: flex;
+            align-items: center ;
+            justify-content: space-between;    
+        }
     </style>
+    <div class="f-icon">
     <div id="filters">
         <div class="filter">
             <div><i class="fa-solid fa-fire"></i><p>Trending</p></div>
@@ -70,8 +81,8 @@
         <div class="filter">
             <div><i class="fa-solid fa-sailboat"></i><p>Boats</p></div>
         </div>
-
-        <div class="tax-toggle">
+        </div>
+        <div class=" d-none d-lg-block tax-toggle">
             <div class="form-check-reverse form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
