@@ -75,7 +75,7 @@
     <p><b>All Reviews</b></p>
     <% for(review of listing.reviews){ %>
         <div class="card col-5 mb-3 ms-3">
-         <div class="card-body">
+         <div class="card-body" style="overflow: auto;">
             <h5><div class="card-title">@<%=review.author.username%></div></h5>
             <p class="starability-result  card-text" data-rating="<%= review.rating  %>"></p>
             <p><div class="card-text"><%= review.comment  %></div></p>  
@@ -93,7 +93,7 @@
     <hr>
 <div class="col-6  mb-3">
     <h3>Where you'will be</h3>
-    <div id="map"></div>
+    <div id="map" style="max-width:180%"></div>
 </div>
 </div>
 </div>
