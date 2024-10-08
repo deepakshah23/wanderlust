@@ -85,4 +85,9 @@ body{
     padding-left: 0;
     padding-right: 0;
 } */
+#map { 
+   
+    height: 300px;
+    max-width: 100%; 
+}
 
