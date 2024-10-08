@@ -85,10 +85,4 @@ body{
     padding-left: 0;
     padding-right: 0;
 } */
-#map { 
-    /* position: absolute; */
-    /* top: 0;  */
-    /* bottom: 0;  */
-    height: 300px;
-    width: 25rem; 
-}
+
