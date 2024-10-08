@@ -1,56 +1,47 @@
-<style>
-  .search-btn{
-    background-color: #fe424d;
-    color: #fff;
-    border: none;
-  }
-  .search-btn:hover{
-    background-color: #f83946;
-    color: #fff;
-  }
-  .search-btn i{
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  .search-inp{
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    font-size: 1rem;
-  }
-.nc{
-    color: white !important;
-  }
-  .nc:hover{
-    color: blue !important;
-  }
-</style>
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav btn search-btn">
-          <!-- <a class="nav-link "  href="/">Home</a> -->
-          <a class="nav-link nc" href="/listings">Explore</a>
-        </div>
-        <div class="navbar-nav ms-auto d-none d-lg-block">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search">
-            <button class="btn search-btn" type="submit"><i class="fa-solid  fa-magnifying-glass"></i>Search</button>
-          </form>
-        </div>
+<head>
+    <nav class="navbar bg-body-tertiary navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/listings">
+            <img src="/images/wanderlustIcon.png" alt="wanderlust" width="30" height="24">
+          </a>
         
-        <div class="navbar-nav ms-auto btn search-btn">
-          <a class="nav-link nc" href="/listings/new">Airbnb your home</a>
-          <% if(!currUser){ %>
-            <a class="nav-link nc"  href="/signup"><b>Sign up</b></a>
-            <a class="nav-link nc" href="/login"><b>Log in</b></a>
-            <% } %><% if(currUser){ %>
-              <a class="nav-link nc" href="/logout"><b>Log out</b></a>
-              <% } %>
-            </div>
-      </div>
-    </div>
-  </nav>
+          <a class="navbar-brand color-red" href="/listings">Wanderlust</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/listings">All listings</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="/listings/new">Create Listing</a>
+              </li>
+              
+            </ul>
+           
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 col-lg-3" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>&nbsp;&nbsp;&nbsp;
+                  </form>
+              </ul>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <% if(!currentUser){ %>
+                <li class="nav-item">
+                  <a class="nav-link "  href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signup">Sign Up</a>
+                </li>
+                <% } %>
+                <% if(currentUser) {%>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">logout</a>
+                </li>
+                <% } %>
+              </ul>
+          </div>
+        </div>
+      </nav>
+</head>
